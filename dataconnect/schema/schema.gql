@@ -1,0 +1,44 @@
+type Profile @table {
+  fullName: String!
+  email: String!
+  bio: String!
+  profileImageUrl: String
+  linkedinUrl: String
+  githubUrl: String
+  resumeUrl: String
+}
+
+type Project @table {
+  title: String!
+  description: String!
+  projectUrl: String!
+  imageUrl: String
+  githubRepoUrl: String
+  completionDate: Date
+  profile: Profile!
+}
+
+type Skill @table {
+  name: String!
+  category: String!
+  proficiencyLevel: String
+  profile: Profile!
+}
+
+type Experience @table {
+  organizationName: String!
+  roleTitle: String!
+  startDate: Date!
+  endDate: Date
+  isCurrent: Boolean
+  description: String
+  profile: Profile!
+}
+
+type ContactMessage @table {
+  senderName: String!
+  senderEmail: String!
+  message: String!
+  createdAt: Timestamp
+  profile: Profile!
+}

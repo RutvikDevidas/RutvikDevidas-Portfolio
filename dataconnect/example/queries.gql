@@ -1,0 +1,32 @@
+mutation SeedAllTables @auth(level: USER) @transaction {
+  profile_insert(data: { id_expr: "auth.uid", fullName: "User Name", email: "user@example.com", bio: "Developer" })
+  project_insert(data: { title: "Test Project", description: "Desc", projectUrl: "https://url.com", profile: { id_expr: "auth.uid" } })
+  skill_insert(data: { name: "GraphQL", category: "Tech", profile: { id_expr: "auth.uid" } })
+  experience_insert(data: { organizationName: "Company", roleTitle: "Dev", startDate: "2023-01-01", profile: { id_expr: "auth.uid" } })
+  contactMessage_insert(data: { senderName: "Visitor", senderEmail: "vis@it.or", message: "Hello", profile: { id_expr: "auth.uid" } })
+}
+
+query GetMyProfile @auth(level: USER) {
+  profile(key: { id_expr: "auth.uid" }) {
+    fullName
+    email
+    bio
+    projects_on_profile { title }
+    skills_on_profile { name }
+  }
+}
+
+query ListProjects @auth(level: PUBLIC, insecureReason: "Publicly visible portfolio") {
+  projects {
+    title
+    projectUrl
+  }
+}
+
+mutation UpdateMyBio($bio: String!) @auth(level: USER) {
+  profile_update(key: { id_expr: "auth.uid" }, data: { bio: $bio })
+}
+
+mutation DeleteProject($id: UUID!) @auth(level: USER) {
+  project_delete(id: $id)
+}

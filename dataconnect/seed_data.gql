@@ -1,0 +1,31 @@
+mutation SeedDatabase @transaction {
+  profile_insertMany(data: [
+    { id: "00000000-0000-0000-0000-000000000001", fullName: "Alice Developer", email: "alice@example.com", bio: "Full-stack engineer." },
+    { id: "00000000-0000-0000-0000-000000000002", fullName: "Bob Designer", email: "bob@example.com", bio: "UI/UX enthusiast." },
+    { id: "00000000-0000-0000-0000-000000000003", fullName: "Charlie Manager", email: "charlie@example.com", bio: "Project lead." }
+  ])
+  
+  project_insertMany(data: [
+    { title: "Portfolio Site", description: "Personal website", projectUrl: "https://alice.dev", profileId: "00000000-0000-0000-0000-000000000001" },
+    { title: "Design System", description: "UI components", projectUrl: "https://bob.design", profileId: "00000000-0000-0000-0000-000000000002" },
+    { title: "Management Dashboard", description: "Internal tool", projectUrl: "https://charlie.pm", profileId: "00000000-0000-0000-0000-000000000003" }
+  ])
+
+  skill_insertMany(data: [
+    { name: "TypeScript", category: "Programming", profileId: "00000000-0000-0000-0000-000000000001" },
+    { name: "Figma", category: "Design", profileId: "00000000-0000-0000-0000-000000000002" },
+    { name: "Agile", category: "Management", profileId: "00000000-0000-0000-0000-000000000003" }
+  ])
+
+  experience_insertMany(data: [
+    { organizationName: "TechCorp", roleTitle: "Frontend Dev", startDate: "2020-01-01", profileId: "00000000-0000-0000-0000-000000000001" },
+    { organizationName: "CreativeAgency", roleTitle: "Lead Designer", startDate: "2019-05-15", profileId: "00000000-0000-0000-0000-000000000002" },
+    { organizationName: "StartUp Inc", roleTitle: "Product Manager", startDate: "2021-03-10", profileId: "00000000-0000-0000-0000-000000000003" }
+  ])
+
+  contactMessage_insertMany(data: [
+    { senderName: "Guest 1", senderEmail: "guest1@web.com", message: "Great work!", profileId: "00000000-0000-0000-0000-000000000001" },
+    { senderName: "Guest 2", senderEmail: "guest2@web.com", message: "Love the UI.", profileId: "00000000-0000-0000-0000-000000000002" },
+    { senderName: "Guest 3", senderEmail: "guest3@web.com", message: "Let's collaborate.", profileId: "00000000-0000-0000-0000-000000000003" }
+  ])
+}
