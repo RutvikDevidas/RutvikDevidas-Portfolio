@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://project-c19ca.web.app/sitemap.xml
+Sitemap: https://rutvik-devidas-portfolio.vercel.app/sitemap.xml
