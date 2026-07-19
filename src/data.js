@@ -63,8 +63,8 @@ export const qualifications = [
   {
     title: 'Bachelor of Computer Applications (BCA)',
     board: 'Goa University',
-    school: 'Rosary College of Commerce and Arts',
-    details: ['Navelim, Goa', 'FGPA : 7.50 (B+)'],
+    school: 'Rosary College of Commerce and Arts, Navelim - Goa',
+    details: ['FGPA : 7.50 ', 'Grade : B+'],
   },
 ];
 
