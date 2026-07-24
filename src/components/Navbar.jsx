@@ -6,7 +6,7 @@ import { socials } from '../data';
 
 const links = [
   { label: 'Home', path: '/' },
-  { label: 'About', path: '/about' },
+  { label: 'About Me', path: '/about' },
   { label: 'Contact', path: '/contact' },
 ];
 
